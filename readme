@@ -1,0 +1,593 @@
+let humanScore = 0;
+let computerScore = 0;
+let currentRoundNumber = 1;
+
+// Write your code below:
+const generateTarget = () => Math.floor(Math.random()*10);
+
+// 7a. returns the distance between 2 numbers.
+const getAbsoluteDistance = (a, b) => Math.abs(a - b);
+
+// 4. returns true if user is closer to target, or tie; returns false if computer is closer to target. alerts if guess is out of range.
+const compareGuesses = (humansGuess, computersGuess, targetNum) => {
+  if ((humansGuess < 0) || (humansGuess > 9)){
+   window.alert('You\'ve lost for being a smartass! Next time, stay in the safe zone of 0 through 9!');
+  } else if ((getAbsoluteDistance(humansGuess, targetNum)) <= (getAbsoluteDistance(computersGuess, targetNum))){
+    return true;
+  } else {
+    return false;
+  };
+};
+
+// 5. announces winner and updates score.
+const updateScore = winner => {
+  if (winner === 'human') {
+    humanScore ++;
+  } else {
+    computerScore ++;
+  };
+};
+
+// 6. activates the 'Next Round' botton.
+const advanceRound = () => currentRoundNumber ++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+const getSleepHours = (day) =>{
+  if(day == "segunda"){
+    return 9
+  };
+  if(day == "terça"){
+    return 7
+  };
+  if(day == "quarta"){
+    return 8
+  };
+  if(day == "quinta"){
+    return 6
+  };
+  if(day == "sexta"){
+    return 8
+  };
+  if(day == "sabado"){
+    return 9
+  };
+  if(day == "domingo"){
+    return 9
+  };
+};
+
+const getActualSleepHours = () =>
+getSleepHours("segunda") + 
+getSleepHours("terça") + 
+getSleepHours("quarta") + 
+getSleepHours("quinta")+ 
+getSleepHours("sexta") + 
+getSleepHours("sabado") + 
+getSleepHours("domingo");
+
+
+const getIdealSleepHours= ()=>{
+
+const idealHours = 8;
+
+return idealHours * 7;
+
+}
+
+const calculateSleepDebt = () =>{
+
+
+  const actualSleepHours = getActualSleepHours();
+
+  const idealSleepHours= getIdealSleepHours(); 
+
+
+  if(actualSleepHours == idealSleepHours){
+    console.log("parabéns você esta dormindo suas horas ideias. " + (actualSleepHours - idealSleepHours))
+  }else if(actualSleepHours > idealSleepHours){
+    console.log("voce dormiu mais que o necessario")
+  } else if(actualSleepHours < idealSleepHours){
+    console.log("você precisa descansar " + (actualSleepHours - idealSleepHours))
+  }
+  
+
+  };
+
+
+calculateSleepDebt()
+
+
+
+
+
+caracteres{
+
+
+  bracket [],
+}
+
+
+
+
+
+
+
+
+
+
+// nesse jogo estamos criando, um sitema de usario contra o computador,\\
+const getUserChoice = (userInput)=>{
+  // o parametro de userImput como se fosse uma variavel, e colocamos o toLowerCae para nao dar erro na hora que o usario for usar\\
+userInput = userInput.toLowerCase();
+// colocamos a situacao do usario humano, escolhar umas das opcoes abaixo, e seu retorno vai ser em letras minusculas, agora se le nao escilher uma das opcoes ira retorna error.
+if(userInput === "rock" || userInput === "paper" || userInput === "scissors"){
+  return userInput;
+} else{
+  console.log("Error")
+  }
+}
+// escolha do computador\\
+const getComputerChoice = () =>{
+// temos 3 opcoes, entao devemos criar um sistema que tenha 3 numeros de 0 a 2(lebrando que na programacao os numeros comecam no 0) entao escolhemos a funcao de Math. para sortear
+const number = Math.floor(Math.random() * 3);
+// aqui colocamos a situacao possivel no sorteo
+if(number == 0){
+  return "rock"
+} else if (number == 1){
+  return "paper"
+}else if(number == 2){
+  return "scissors"
+}
+ };
+ // vamos determinar quem vai ganha o jogo, com situacoes possiveis.\\
+const determineWinner= (userChoice,computerChoice)=>{
+
+  if(userChoice == computerChoice ){
+    return " O jogo ficou empadado"
+  };
+if(userChoice == "rock"){
+    if(computerChoice == "paper"){
+      return " computador ganhou!!"
+    } else{
+      return "usario ganhou"
+    }
+  };
+
+  if(userChoice == 'paper'){
+    if(computerChoice == "rock" || computerChoice == "scissors" ){
+      return "Vencedor"
+    }
+  };
+
+  if(userChoice == 'scissors'){
+    if(computerChoice == "rock" || computerChoice == "paper"){
+      return "Vencedor"
+    }
+  };
+
+}
+// vamos rodar todas as funcoes dentro dessa funcao para vermos os resultados\\
+const playGame = () =>{
+
+  // criamos 2 variaveis que contém, os valores na funcao acima, onde sao delcradas, e chamamos elas aqui com variaveis, e damos a elas o valor das funcoes acima\\
+  // a baixo na primeira variavel, eu escolhe a minha alternativa, por isso esta co argumento o paper\\
+  const userChoice = getUserChoice('paper');
+  // do computador nao precisa por que vai sair o aliatoria, porque definimos no Math em cima.
+  const computerChoice = getComputerChoice();
+  // aqui imprimi mei resultado
+  console.log('You threw: ' + userChoice);
+// imprimo o resultado do computador\\
+  console.log('The computer threw:' + computerChoice);
+// aqui estamos passando os argumentos, e coloquei aqui o console, para poder imprir na dela os resultado\\
+  console.log(determineWinner(userChoice, computerChoice))
+
+  // toda funcao nos temos paramentros e argumento,esse acima é meu argumento, onde eu escreve toda a funcao e agora estou passando para esse para imprimir o valor de tudo que foi feito a cima.
+  
+}
+// chamando a funcao para obter os resultados 
+playGame()
+
+
+
+
+
+
+
+
+
+
+
+# esta pasta vai ser so de estudos e codigos que vou precisar praticar!
+
+# uma boa praticar para javascritp é sempre colocar le perto do body!
+
+# toda progrmar precisa de dados para ser armazenados, e ai que entrar as variaveis.
+
+nesse contexto temos 3 tipos de variaveis 
+
+
+- let: podemos midar seu valor a qualquer hora.
+
+- const: o valor se mantem imutavel
+
+- var: podemos tambem mudar seu valor, para amarzenar valor.
+
+
+#temos em javascript escopo global / escopo de funcao.
+
+- escopo global: onde a variavel e declarada fora da funcao, isso faz dela uma variavel grobal sendo acessada por qualuqer funcao.
+
+- escopo de funcao: as variaveis que sao declaradas dentro da funcao. e so podem ser acessada dentro ds funcao em que foram declaradas.
+
+//////////////////////////////////////////////////////////////////////////////////
+
+#tipos de variavies e seus valores.
+
+x = 1;  // Números.
+x = 0.01;  // Apenas um tipo Number para inteiros e reais.
+x = "hello world"; // Strings de texto entre aspas.
+x = 'JavaScript'; x = true; // Apóstrofos também delimitam strings.
+x = false; // Valores booleanos.
+x = false; // O outro valor booleano.
+
+
+
+
+no javascript podemos fazer somas 
+
+como: adicao, subtracao, divisao, multiplicacao , usamos o seguintes simbolos
+
++=  adição
+
+- = subtração
+
+/ = divisão
+
+* = multiplicação
+
+- preciso estudar condições no javascript!
+A condicional if  é uma estrutura condicional que executa a afirmação, 
+dentro do bloco, se determinada condição for verdadeira. Se for falsa, 
+executa as afirmações dentro de else.
+if (condição1)
+   {instrução1}
+else if (condição2)
+   {instrução2}
+else if (condição3)
+   {instrução3}
+...
+else
+   {instruçãoN
+   
+   
+  operadores tenarios 
+
+
+  é usado para ser um jeito mais imles de usar o if e else 
+
+
+  if ?       else :  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   }
+
+
+
+- condições sempre vai printa a condicao correta que queremos, ou se nao ela vai analisar, melhor condicao.
+
+
+- loop: uma das maneira que queremos para fazer algo que seja repetido no programar.
+ 
+ (for (var i = 0; i < 10; i++) {
+              // Do something here
+});
+
+
+
+
+# Podemos acessar propriedades e métodos usando o .operador ponto.
+
+#{} esse simbolo significar espresao é onde vamos declarar alguns valaores e onde a maioria das dos instrucoes que queremos colocamos dentro.
+
+
+
+# propriedade é indicada com um . e o noma da propriedade (name.lenght) /'hello'.toUpperCase()
+
+
+          #para podermos interpolar hoje usamos um novo metedo $ 
+
+
+palavras chaves{
+
+typeOf =  retorna o tipo de dados (como uma string) de um valor.
+length = me diz o numero de letras que tenho em uma palavra
+  “
+
+
+
+
+  
+
+}
+
+
+
+
+construtoras{
+
+     # construtora Date() = podemos trabalhar com horas e dadas.
+
+     later.getFullYear()
+     
+      later.getMonth() 
+      
+      later.getDate() 
+      
+      later.getDay() 
+      
+      later.getHours() 
+      
+      later.getUTCHours()
+      
+      
+      later.toString()
+
+
+     later.toUTCString() 
+
+     later.toLocaleDateString() 
+
+    later.toLocaleTimeString() 
+
+
+      later.toISOString()
+
+      ///////////
+}
+
+        Sequência
+Caractere representado
+
+\0.     O caractere NUL (\u0000)
+\b.       Retrocesso (\u0008)
+\t      Tabulação horizontal (\u0009)
+\n      Nova linha (\u000A)
+\v      Tabulação vertical (\u000B)
+\f      Avanço de página (\u000C)
+\r     Retorno de carro (\u000D)
+\"
+\'
+\\
+\x XX \u XXXX
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Arrays = são variaveis com multiplos valores, podendo ser acessados, adicionar mais valor, corta valor, munipular o valor,
+
+
+proriedades[
+
+
+ # em javascriipt as strings sao imultaveis.
+
+    charAt(0) 
+    charAt(s.length-1) 
+    substring(1,4) 
+    slice(1,4) 
+    slice(-3) 
+    indexOf("l") 
+    lastIndexOf("l") 
+    indexOf("l", 3)
+    split(", ") 
+    replace("h", "H") 
+    toUpperCase()
+
+    conferir na documentacao sobre os tipos de propriedades exsitentes na strings.
+]
+
+
+# como acessar um Array
+
+colocamos o nome da variavel mais o oclchetes 
+
+
+exemplos : var name =[" elias", "raquel","daniel"]
+
+acessando : name[0] os arrays funcionar com numeros de ontem comecando ocm 0, chamamos de index, que significar a posicao em numeros. 
+
+
+multi-dimensional array = sao multiplos arrays, const teams = [["Bulls", 23], ["White Sox", 45]]; aqui temos 2 arrays. 
+
+os arrays eles podem receber um novo valor 
+
+const frutas = [banana, pera, maca]
+frutas[0] = limao. \\ com isso eu consego dar um novo valor para meu array. 
+
+
+const arr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [[10, 11, 12], 13, 14]
+];
+
+arr[3]; \\ significar 0 index da matrix
+arr[3][0]; \\ signifcar o index e a posicao da matrix que esta se referindo
+arr[3][0][1]; \\ ele esta pegando o index da matrix em seguida o arrays que esta dentro dessa matrix e a posicao do valor para ser acessado.
+arr[3]é [[10, 11, 12], 13, 14], arr[3][0]é [10, 11, 12]e arr[3][0][1]é 11. \\exemplo de como acessar minha arrays dentro de uma matrix. 
+
+push = push palavras para o final do meu array.
+pop = ele removo o ultimo item do seu arrays e retorna em uma nova variavel.
+shift = remove o primeiro item do meu arrays.
+unshift()adiciona o elemento no início da matriz.
+
+
+quando eu for add ou retirar alguma coisa do meu array eu nao preciso declarar, mas agora se eu for usar para colocar em outra const ou quarda o valor ai sim eu preciso declarar.
+
+
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+operadores logicos 
+
+&& e representado por E dentro de uma soma significando continuacao, O operador lógico e ( &&) retorna truese e somente se os operandos à esquerda e à direita dele forem verdadeiros.
+
+|| significar ou dando margem para mais de uma operacao dentro do if instrucao 
+
+
+! significar nao fazendo comparacao ou querendo mudar um valor.
+
+if ((x == 0 && y == 0) || !(z == 0)) {
+// x e y são ambos zero ou z não é zero
+
+== ele tenta converter number ou string na condicao que tiver 
+
+=== ele ver se a condicoes e realmente verdadeira, nao querendo mudar o situcao da condicao.
+
+!= operador de desigudade é o oposto do ==
+
+!== operador de desiguadade estrita e o oposto de ===
+
+> maior que 
+
+>= O maior ou igual a operator
+
+< menor que 
+
+<= igual o menor que 
+
+}
+
+
+
+loop{
+
+# em javascript temos o loop, onde podemos fazer repeticao, algumas vezes vampos precisar imprimir no consol, alguns re
+repeticao e ao que entrar o loop:
+
+
+temos 4 maneiros de fazer o loop.
+
+
+   for 
+   do while
+
+
+
+      sintaxe 
+
+      for( i =0; i< 10; i++){
+         do same thing 
+
+
+
+         O i significar uma variavel com o valor zero, em seguida temos esse valor sendo menor 
+         do que 10, a onde no console vai imprir um numero de 0 a 9, porem quando colocamos i++ sigficar que ele tambem vai acrescentar o 10
+      }
+
+   while(i < 10){
+      faca alguma coisa 
+      i++
+      e sempre colocar o ++ para termos um numero a mais.
+
+
+
+
+
+      Um loop while é semelhante a um loop for, na medida em que o código entre colchetes é executado enquanto a condição for verdadeira. 
+      Ao contrário de um loop for, no entanto, você precisa fazer algo explicitamente dentro do loop para sair do loop. Se você esquecer, 
+         ficará preso em um loop infinito!
+   }
+}
+
+
+
+funcaoes{
+
+todo vez que eu for usar o console em uma funcao nao posso usar fora da funcao, porque é um escopo de broco, e se usae sempre vai gerar um erro.
+
+# Atribuição com valor devolvido:
+
+let processed = 0; definimos o processed igual a 0
+
+function processArg(num) {
+  return (num + 3) / 5;   \\fizemos uma funcao e a baixo devolvemos para o processed o valor com a funcao, depois que ela executar os valor o processed vai receber a funcoa mais 7 
+}
+
+// podemos pega o valor da funcao a cima e devolver para uma variavel global  isso chma devolver o valor 
+processed = processArg(7)
+
+}
+
+
+objeto{
+
+objeto é uma variavel com varias dados com valores.
+
+var name ={
+sobrenamo: elias,
+nome da esposa: Raquel,
+mae: maria,
+}
+
+para chama um objeto fazemos o seguinte.  
+
+noma da variavel mais a sua propriedade.
+
+name.mae = maria 
+
+para acrescentar algum valor e simplis.
+
+noma da variavel junto com o nome da nova proriedade e o valor, como se fosse fazer uma nova variavel.
+}
+
+para objetos para fazemos um loop usamos o for in 
+
+
+sintaxe
+for (variavel in objeto) {...
+
+
+
+var ball = {
+   “color”:  “white”,
+   “type”: “baseball”
+};
+ball.weight = 15;
+for (var prop in ball) {
+   alert(ball[prop]);
+}
+
+
+
+}
+
+
+
+
+
+
+
