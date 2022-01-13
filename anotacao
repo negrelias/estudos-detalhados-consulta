@@ -1,0 +1,331 @@
+apredenfo  SQL
+
+no sql temos o banco de dados relacional 
+
+que cotem informacoes, e dentro dessa imformacoes estao os dados, e estao em forma de linha 
+
+
+dados relacional
+
+etemos 4 tipos comum 
+
+INTEGER, um número inteiro positivo ou negativo
+
+TEXT, uma string de texto
+
+DATE, a data formatada como AAAA-MM-DD
+
+REAL, um valor decimal
+
+
+o primeiro comando para criar dados no sql é
+
+// isso chamamos de clusura e as númerosql se escreve colum_2letras maiusculas
+CREATE TABLE table_name(
+// essas colunas sao como se fosse parametros que cotem informacoes, parametrosser declaradas.
+colum_1 data_type
+colum_2 data_type
+colum_3 data_type
+
+
+
+)
+
+INSERT insire uma nova linha na tabela
+
+
+exeplos 
+
+INSERT INTO celebs (id, name, age) // isso funciona como no javascript strings e numeros
+VALUES (1, 'Justin Bieber', 22);
+
+
+VALUES é uma clusura que indica os dados sendo inseridos 
+
+SELECT name FROM celebs; serve para consultar o valor que voce deseja na tabela
+SELECT id FROM seleciona todos os dados id colocamos 
+SELECT age FROM seleciona todos as idades 
+
+ALTER TABLE criar uma nova coluna para o table
+para criar pasta apenas colocar o ALTER TABLE e o nome 
+e o tipo se é text, date, interge, REAL
+ADD  COLUMN para CRIAR A COLUNA
+
+select * FROM é para acessar todos os dados do documento ,
+
+NULLé um valor especial em SQL que representa dados ausentes ou desconhecidos. Aqui, as linhas que existiam antes da coluna ser adicionada têm NULLvalores (∅) para twitter_handle.
+
+
+
+UPDATE é uma cláusula que edita uma linha na tabela.
+2. celebs é o nome da mesa.
+3. SET é uma cláusula que indica a coluna a ser editada.
+
+twitter_handle é o nome da coluna que será atualizada
+@taylorswift13é o novo valor que será inserido na twitter_handlecoluna.
+4. WHERE é uma cláusula que indica quais linhas devem ser atualizadas com o novo valor da coluna. Aqui, a linha com um 4na idcoluna é a linha para a qual será twitter_handleatualizado @taylorswift13.
+
+
+DELETE FROM celebs 
+WHERE twitter_handle IS NULL;
+
+DELETE FROM é uma cláusula que permite excluir linhas de uma tabela.
+celebs é o nome da tabela da qual queremos deletar linhas.
+WHEREé uma cláusula que permite selecionar quais linhas você deseja excluir. Aqui, queremos deletar todas as linhas onde está a coluna twitter_handle IS NULL.
+IS NULLé uma condição em SQL que retorna verdadeiro quando o valor é NULLe falso caso contrário.
+
+
+
+
+
+INSERT INTO friends(id, name, birthday)
+VALUES(1,'ororo munroe','1940-05-30');
+
+
+INSERT INTO friends (id, name, birthday )
+VALUES(2, ' BFF one', 'YYYY-MM-DD');
+
+
+INSERT INTO friends (id, name, birthday )
+VALUES(3, ' BFF two', 'YYYY-MM-DD');
+
+UPDATE friends
+SET name = 'Storm'
+WHERE id = 1;
+
+
+ALTER TABLE friends 
+ADD COLUMN email TEXT;
+
+
+UPDATE friends
+SET email = 'storm@codecademy.com'
+WHERE id = 1;
+
+DELETE FROM friends
+WHERE id = 1;
+
+SELECT * FROM friends;
+
+
+
+
+
+você consegue adivinhar o que ASfaz?
+
+ASé uma palavra-chave em SQL que permite renomear uma coluna ou tabela usando um alias. O novo nome pode ser o que você quiser, desde que seja colocado entre aspas simples. Aqui, renomeamos a namecoluna como Titles.
+
+Algumas coisas importantes a serem observadas:
+
+Embora nem sempre seja necessário, é uma prática recomendada colocar seus aliases entre aspas simples.
+Ao usar AS, as colunas não são renomeadas na tabela. Os aliases aparecem apenas no resultado.
+
+
+
+DISTINCTé usado para retornar valores únicos na saída. Ele filtra todos os valores duplicados nas colunas especificadas.
+
+como aplicar 
+
+
+SELECT DISTINCT tools 
+FROM inventory;
+
+
+Onde
+Podemos restringir nossos resultados de consulta usando a WHEREcláusula para obter apenas as informações que desejamos.
+
+Seguindo este formato, a declaração abaixo filtra o conjunto de resultados para incluir apenas os filmes com melhor classificação (classificações do IMDb superiores a 8):
+
+SELECT *
+FROM movies
+WHERE imdb_rating > 8;
+Como funciona?
+
+WHEREA cláusula filtra o conjunto de resultados para incluir apenas linhas em que a seguinte condição seja verdadeira.
+
+imdb_rating > 8é a condição. Aqui, apenas as linhas com um valor maior que 8 na imdb_ratingcoluna serão retornadas.
+
+O >é um operador . Os operadores criam uma condição que pode ser avaliada como verdadeira ou falsa .
+
+Os operadores de comparação usados ​​com a WHEREcláusula são:
+
+= igual a
+!= não é igual a
+> Maior que
+< Menor que
+>= Melhor que ou igual a
+<= menos que ou igual a
+Existem também alguns operadores especiais sobre os quais aprenderemos mais nos próximos exercícios.
+
+
+
+LIKE pode ser um operador útil quando você deseja comparar valores semelhantes.
+
+A moviestabela contém dois filmes com títulos semelhantes, 'Se7en' e 'Seven'.
+
+Como poderíamos selecionar todos os filmes que começam com 'Se' e terminam com 'en' e têm exatamente um personagem no meio?
+
+SELECT * 
+FROM movies
+WHERE name LIKE 'Se_en';
+LIKEé um operador especial usado com a WHEREcláusula para pesquisar um padrão específico em uma coluna.
+
+name LIKE 'Se_en'é uma condição que avalia a namecoluna para um padrão específico.
+
+Se_enrepresenta um padrão com um caractere curinga .
+
+Isso _significa que você pode substituir qualquer caractere individual aqui sem quebrar o padrão. Os nomes Sevene Se7enambos correspondem a esse padrão.
+
+
+
+Como II
+O sinal de porcentagem %é outro caractere curinga que pode ser usado com LIKE.
+
+Esta declaração abaixo filtra o conjunto de resultados para incluir apenas filmes com nomes que começam com a letra 'A':
+
+SELECT * 
+FROM movies
+WHERE name LIKE 'A%';
+%é um caractere curinga que corresponde a zero ou mais letras ausentes no padrão. Por exemplo:
+
+A% corresponde a todos os filmes com nomes que começam com a letra 'A'
+%a corresponde a todos os filmes que terminam com 'a'
+Também podemos usar %antes e depois de um padrão:
+
+SELECT * 
+FROM movies 
+WHERE name LIKE '%man%';
+Aqui, qualquer filme que contenha a palavra 'homem' em seu nome será retornado no resultado.
+
+LIKEnão faz distinção entre maiúsculas e minúsculas. 'Batman' e 'Homem de Aço' aparecerão no resultado da consulta acima.
+
+
+
+
+
+
+Entre
+O BETWEENoperador é usado em uma WHEREcláusula para filtrar o conjunto de resultados dentro de um determinado intervalo . Aceita dois valores que podem ser números, texto ou datas.
+
+Por exemplo, esta instrução filtra o conjunto de resultados para incluir apenas filmes com years de 1990 até e incluindo 1999.
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 1999;
+Quando os valores são texto, BETWEENfiltra o conjunto de resultados dentro do intervalo alfabético.
+
+Nesta instrução, BETWEENfiltra o conjunto de resultados para incluir apenas filmes com names que começam com a letra 'A' até, mas não inclui aqueles que começam com 'J'.
+
+SELECT *
+FROM movies
+WHERE name BETWEEN 'A' AND 'J';
+No entanto, se um filme tiver um nome simplesmente 'J', ele realmente corresponderia. Isso ocorre porque BETWEENsobe para o segundo valor - até 'J'. Portanto, o filme chamado 'J' seria incluído no conjunto de resultados, mas não 'Tubarão'.
+
+
+
+
+E
+Às vezes, queremos combinar várias condições em uma WHEREcláusula para tornar o conjunto de resultados mais específico e útil.
+
+Uma maneira de fazer isso é usar o ANDoperador. Aqui, usamos a ANDoperadora para retornar apenas filmes de romance dos anos 90.
+
+SELECT * 
+FROM movies
+WHERE year BETWEEN 1990 AND 1999
+   AND genre = 'romance';
+year BETWEEN 1990 AND 1999 é a 1ª condição.
+
+genre = 'romance' é a 2ª condição.
+
+AND combina as duas condições.
+
+
+
+Ou
+Semelhante a AND, o ORoperador também pode ser usado para combinar várias condições WHERE, mas há uma diferença fundamental:
+
+ANDoperador exibe uma linha se todas as condições forem verdadeiras.
+ORoperador exibe uma linha se qualquer condição for verdadeira.
+Suponha que queremos dar uma olhada em um novo filme ou algo cheio de ação:
+
+SELECT *
+FROM movies
+WHERE year > 2014
+   OR genre = 'action';
+year > 2014 é a 1ª condição.
+
+genre = 'action' é a 2ª condição.
+
+OR combina as duas condições.
+
+
+
+
+
+
+Ordenar por
+É isso aí com WHEREe seus operadores. Se movendo!
+
+Freqüentemente, é útil listar os dados em nosso conjunto de resultados em uma ordem específica.
+
+Podemos classificar os resultados usando ORDER BY, em ordem alfabética ou numérica. A classificação dos resultados geralmente torna os dados mais úteis e fáceis de analisar.
+
+Por exemplo, se quisermos classificar tudo pelo título do filme de A a Z:
+
+SELECT *
+FROM movies
+ORDER BY name;
+ORDER BY é uma cláusula que indica que você deseja classificar o conjunto de resultados por uma coluna específica.
+
+name é a coluna especificada.
+
+Às vezes, queremos classificar as coisas em ordem decrescente. Por exemplo, se quisermos selecionar todos os filmes bem recebidos, classificados em ordem decrescente por ano:
+
+SELECT *
+FROM movies
+WHERE imdb_rating > 8
+ORDER BY year DESC;
+DESCé uma palavra-chave usada ORDER BYpara classificar os resultados em ordem decrescente (alto para baixo ou ZA).
+
+ASCé uma palavra-chave usada em ORDER BYpara classificar os resultados em ordem crescente (baixo para alto ou AZ).
+
+A coluna que ORDER BYnão precisa ser uma das colunas que estamos exibindo.
+
+Nota: ORDER BYsempre vai atrás WHERE(se WHEREestiver presente).
+
+
+
+SELECT name, year, imdb_rating
+FROM movies
+ORDER BY imdb_rating DESC;
+
+
+
+Limite
+Trabalhamos com uma tabela relativamente pequena (menos de 250 linhas), mas a maioria das tabelas SQL contém centenas de milhares de registros. Nessas situações, torna-se importante limitar o número de linhas no resultado.
+
+Por exemplo, imagine que queremos apenas ver alguns exemplos de registros.
+
+SELECT *
+FROM movies
+LIMIT 10;
+LIMITé uma cláusula que permite especificar o número máximo de linhas que o conjunto de resultados terá. Isso economiza espaço em nossa tela e torna nossas consultas mais rápidas.
+
+Aqui, especificamos que o conjunto de resultados não pode ter mais de 10 linhas.
+
+LIMITsempre vai no final da consulta. Além disso, não é compatível com todos os bancos de dados SQL.
+
+
+SELECT name,
+CASE
+WHEN genre = 'romance' THEN 'Chill'
+WHEN genre = 'comedy' THEN 'Chill'
+ELSE 'Intense'
+END AS 'Mood' 
+FROM movies;
+
+
+
+
+
+temnos como fazer 

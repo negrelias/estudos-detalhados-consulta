@@ -586,6 +586,102 @@ for (var prop in ball) {
 }
 
 
+objetos complexos: sao metadados que tem suas cheves que dentro das suas chaves temos a sua propriedades. pode ser um array e dentro desse array podemos ter um objeto, e dentro deese objeto podemos 
+vriar outros objetos o outros arrays 
+
+para acessar uma prorpieda>
+
+
+exemplos 
+const ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+  \\ aqui podemos acessar um propriedade.
+ourStorage.cabinet["top drawer"].folder2;
+ourStorage.desk.drawer; 
+
+
+outro exemplo
+
+const myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+const gloveBoxContents = myStorage.car.inside['glove box'] ;
+
+console.log(gloveBoxContents)
+
+
+
+
+
+como acessar matriz aninhadas 
+
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+
+ourPets[0].names[1];
+ourPets[1].names[0];
+
+
+
+outro exemplos
+
+const myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+const secondTree =myPlants[1].list[1];
+
+console.log(secondTree)
 
 
 

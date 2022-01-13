@@ -1,0 +1,113 @@
+
+loops:
+
+
+const ourArray = [];
+let i = 0;
+
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+
+no while voce precisa mudaro valor da variavel se quiser declara descrecente.
+let i = 5;
+
+while(i >= 0){
+  myArray.push(i);
+  i--
+}
+
+console.log(myArray)
+
+#FOR LOOP
+
+Os loops For são declarados com três expressões opcionais separadas por ponto e vírgula:
+
+for (a; b; c), onde aé a instrução de inicialização, bé a instrução da condição e cé a expressão final.
+
+
+
+
+#Vamos começar em i = 0e fazer um loop while i < 10. Iremos incrementar iem 2 cada loop com i += 2.
+
+const ourArray = [];
+
+for (let i = 0; i < 10; i += 2) {
+  ourArray.push(i);
+}
+
+
+
+const arr = [10, 9, 8, 7, 6];
+
+for (let i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+Lembre-se de que os arrays têm indexação baseada em zero, o que significa que o último índice do array é length - 1. Nossa condição para este loop é i < arr.length, que interrompe o loop quando ifor igual a length. Neste caso, a última iteração é, 
+i === 4isto é, quando itorna-se igual a arr.length - 1e envia 6para o console. Em seguida, iaumenta para 5e o loop termina porque i < arr.lengthé false.
+
+
+Se você tiver uma matriz multidimensional, poderá usar a mesma lógica do waypoint anterior para percorrer tanto a matriz quanto quaisquer submatrizes. Aqui está um exemplo:
+
+const arr = [
+  [1, 2], [3, 4], [5, 6]
+];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+Isso gera cada subelemento arrum de cada vez. Observe que, para o loop interno, estamos verificando o .lengthde arr[i], uma vez que arr[i]ele próprio é um array.
+
+
+Nesting For Loops
+
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    product *= arr[i][j];
+  }
+}
+  // Only change code above this line
+  return product;
+}
+
+multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+
+
+Em vez de gerar um número inteiro aleatório entre zero e um determinado número como fizemos antes, podemos gerar um número inteiro aleatório que se enquadra em um intervalo de dois números específicos.
+
+Para fazer isso, vamos definir um número mínimo mine um número máximo max.
+
+Aqui está a fórmula que usaremos. Reserve um momento para lê-lo e tente entender o que este código está fazendo:
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+
+A parseInt()função analisa uma string e retorna um inteiro. Aqui está um exemplo:
+
+
+Use o operador condicional (ternário)
+O operador condicional , também chamado de operador ternário , pode ser usado como uma expressão if-else de uma linha.
+
+A sintaxe é a ? b : c, onde aestá a condição, bé o código a ser executado quando a condição retornar truee cé o código a ser executado quando a condição retornar false.
+
+A função a seguir usa uma if/elseinstrução para verificar uma condição:
+
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater or equal";
+  }
+}
+Isso pode ser reescrito usando o operador condicional:
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+
+
